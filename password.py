@@ -65,3 +65,5 @@ class Password:
         password_found = Password.find_by_number(number)
         pyperclip.copy(password_found.email)
 
+    
+

@@ -45,7 +45,7 @@ def main():
     print('\n')
 
     while True:
-                    print("Use these short codes : cp - create a new password dc - display passwords, fc -find a password, ex -exit the password locker ")
+                    print("Use these short codes : cp - create a new password dp - display passwords, fc -find a password, ex -exit the password locker ")
 
                     short_code = input().lower()
 
@@ -74,7 +74,7 @@ def main():
                             print(f"New Password {f_name} {l_name} created")
                             print ('\n')
 
-                    elif short_code == 'dc':
+                    elif short_code == 'dp':
 
                             if display_passwords():
                                     print("Here is a list of all your passwords")
