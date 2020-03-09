@@ -37,6 +37,13 @@ def display_passwords():
     '''
     return Password.display_passwords()
 
+def generate_Passwords():
+    '''
+    generates a random password for the user.
+    '''
+    auto_password=Credentials.generatePassword()
+    return auto_password
+
 
 def main():
     print("Hello Welcome to your password locker. What is your name?")
@@ -45,7 +52,7 @@ def main():
     print('\n')
 
     while True:
-                    print("Use these short codes : cp - create a new password dp - display passwords, fc -find a password, ex -exit the password locker ")
+                    print("Use these short codes : cp - create a new password dp - display passwords, fp -find a password, ex -exit the password locker ")
 
                     short_code = input().lower()
 
@@ -89,7 +96,9 @@ def main():
                                     print("You dont seem to have any password saved yet")
                                     print('\n')
 
-                    elif short_code == 'fc':
+                    
+
+                    elif short_code == 'fp':
 
                             print("Enter the number you want to search for")
 
