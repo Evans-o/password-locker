@@ -45,11 +45,11 @@ def main():
     print('\n')
 
     while True:
-                    print("Use these short codes : cc - create a new password dc - display passwords, fc -find a password, ex -exit the password locker ")
+                    print("Use these short codes : cp - create a new password dc - display passwords, fc -find a password, ex -exit the password locker ")
 
                     short_code = input().lower()
 
-                    if short_code == 'cc':
+                    if short_code == 'cp':
                             print("New Password")
                             print("-"*10)
 
