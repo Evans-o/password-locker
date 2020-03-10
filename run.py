@@ -52,7 +52,7 @@ def main():
     print('\n')
 
     while True:
-                    print("Use these short codes : cp - create a new password dp - display passwords, fp -find a password, ex -exit the password locker ")
+                    print("Use these short codes : cp - create a new password dp - display passwords, fp -find a password,gp -generate a new password, ex -exit the password locker ")
 
                     short_code = input().lower()
 
@@ -88,7 +88,7 @@ def main():
                                     print('\n')
 
                                     for password in display_passwords():
-                                            print(f"{password.first_name} {password.last_name} .....{password.phone_number}")
+                                            print(f"{password.first_name} {password.last_name} .....{password.phone_number}  ....{password.email} .....{password.password}")
 
                                     print('\n')
                             else:
@@ -123,6 +123,8 @@ def main():
 if __name__ == '__main__':
 
     main()
+
+
 
 
                             

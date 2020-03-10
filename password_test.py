@@ -17,6 +17,7 @@ class Testpasswordnew_password(unittest.TestCase):
         '''
         test_init test case to test if the object is initialized properly
         '''
+    
 
         self.assertEqual(self.new_password.first_name,"Evans")
         self.assertEqual(self.new_password.last_name,"Opindi")
