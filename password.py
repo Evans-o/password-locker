@@ -1,27 +1,24 @@
+import pyperclip
 class Password:
-    """
-    Class that generates new instances of passwords.
-    """
 
-    password_list = [] # Empty password list
+    password_list = [] # Empty contact list
  # Init method up here
     def save_password(self):
 
         '''
-        save_password method saves password objects into password_list
+        save_contact method saves contact objects into contact_list
         '''
 
         Password.password_list.append(self)
-    def __init__(self,first_name,last_name,number,email,password):
 
-      # docstring removed for simplicity
 
-        self.first_name = first_name
-        self.last_name = last_name
-        self.phone_number = number
-        self.email = email
-        self.password= password
+    def __init__(self,first_name, last_name, number, email, password):
 
+        self.first_name=first_name
+        self.last_name=last_name
+        self.phone_number=number
+        self.email=email
+        self.password=password
     def delete_password(self):
 
         '''
@@ -29,7 +26,6 @@ class Password:
         '''
 
         Password.password_list.remove(self)
-
     @classmethod
     def find_by_number(cls,number):
         '''
@@ -44,7 +40,6 @@ class Password:
         for password in cls.password_list:
             if password.phone_number == number:
                 return password
-
     @classmethod
     def password_exist(cls,number):
         '''
@@ -59,10 +54,16 @@ class Password:
                     return True
 
         return False
-
     @classmethod
-    def display_passwords(cls):
+    def display_password(cls):
         '''
         method that returns the contact list
         '''
         return cls.password_list
+
+    @classmethod
+    def copy_email(cls,number):
+        password_found = Password.find_by_number(number)
+        pyperclip.copy(password_found.email)
+
+    

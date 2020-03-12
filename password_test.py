@@ -25,13 +25,6 @@ class Testpasswordnew_password(unittest.TestCase):
         self.assertEqual(self.new_password.email,"evansopindi@yahoo.com")
         self.assertEqual(self.new_password.password,"evracheche1999")
         
-    def create_Password(fname,lname,phone,email,password):
-        '''
-        Function to create a new contact
-        '''
-        new_password = Password(fname,lname,phone,email,password)
-        return new_password
-
 
     def test_save_password(self):
         '''
@@ -42,7 +35,7 @@ class Testpasswordnew_password(unittest.TestCase):
         self.assertEqual(len(Password.password_list),1)
 
 
-    # setup and class creation up here
+# setup and class creation up here
     def tearDown(self):
             '''
             tearDown method that does clean up after each test case has run.
@@ -56,7 +49,7 @@ class Testpasswordnew_password(unittest.TestCase):
             objects to our contact_list
             '''
             self.new_password.save_password()
-            test_password = Password("Test","user","0712345678","test@user.com","evracheche") # new contact
+            test_password = Password("Test","user","0740772578","test@user.com","evracheche1999") # new contact
             test_password.save_password()
             self.assertEqual(len(Password.password_list),2)
 
@@ -67,11 +60,12 @@ class Testpasswordnew_password(unittest.TestCase):
             test_delete_contact to test if we can remove a contact from our contact list
             '''
             self.new_password.save_password()
-            test_password = Password("Test","user","0712345678","test@user.com","evracheche") # new contact
+            test_password = Password("Test","user","0740772575","test@user.com","evracheche1999") # new contact
             test_password.save_password()
 
             self.new_password.delete_password()# Deleting a contact object
             self.assertEqual(len(Password.password_list),1)
+
 
     def test_find_password_by_number(self):
         '''
@@ -79,12 +73,13 @@ class Testpasswordnew_password(unittest.TestCase):
         '''
 
         self.new_password.save_password()
-        test_password = Password("Test","user","0711223344","test@user.com","evracheche") # new contact
+        test_password = Password("Test","user","0740772578","evansopindi@yahoo.com","evracheche1999") # new contact
         test_password.save_password()
 
-        found_password = Password.find_by_number("0711223344")
+        found_password = Password.find_by_number("0740772578")
 
         self.assertEqual(found_password.email,test_password.email)
+
 
     def test_password_exists(self):
         '''
@@ -92,20 +87,30 @@ class Testpasswordnew_password(unittest.TestCase):
         '''
 
         self.new_password.save_password()
-        test_password = Password("Test","user","0711223344","test@user.com","password") # new contact
+        test_password = Password("Test","user","0740772578","test@user.com","evracheche1999") # new contact
         test_password.save_password()
 
-        password_exists = Password.password_exist("0711223344")
+        password_exists = Password.password_exist("0740772578")
 
         self.assertTrue(password_exists)
 
-    def test_display_all_passwords(self):
+
+    def test_display_all_password(self):
         '''
         method that returns a list of all contacts saved
         '''
 
-        self.assertEqual(Password.display_passwords(),Password.password_list)
+        self.assertEqual(Password.display_password(),Password.password_list)
 
 
+    def test_copy_email(self):
+        '''
+        Test to confirm that we are copying the email address from a found contact
+        '''
+
+        self.new_password.save_password()
+        Password.copy_email("0740772578")
+
+        self.assertEqual(self.new_password.email,pyperclip.paste())
 if __name__ == '__main__':
     unittest.main()
